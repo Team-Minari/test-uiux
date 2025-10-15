@@ -1,7 +1,7 @@
-import Footer from "./components/layout/Footer.tsx";
+import Category from "./components/layout/Category.tsx";
 
 function App() {
-	return <Footer />;
+	return <Category />;
 }
 
 export default App;
