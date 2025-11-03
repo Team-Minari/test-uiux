@@ -1,7 +1,7 @@
-import Category from "./components/layout/Category.tsx";
+import MainPage from "./pages/main/MainPage.tsx";
 
 function App() {
-	return <Category />;
+	return <MainPage />;
 }
 
 export default App;

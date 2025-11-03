@@ -7,8 +7,8 @@ import {
 
 export default function CategoryNav() {
 	return (
-		<div className="bg-white py-4 border-b">
-			<div className="max-w-7xl mx-auto px-4 flex justify-between items-center gap-6">
+		<div className="bg-white py-4 border-b border-gray-300">
+			<div className="max-w-7xl mx-auto px-30 flex justify-between items-center gap-6">
 				{/* Left: 카테고리 버튼 */}
 				<button
 					type="button"
@@ -18,7 +18,7 @@ export default function CategoryNav() {
 				</button>
 
 				{/* 검색창 */}
-				<div className="flex-grow max-w-2xl">
+				<div className="flex-grow max-w-xl">
 					<form className="flex items-center w-full border-2 border-green-500 rounded-md overflow-hidden">
 						<div className="relative">
 							<button
