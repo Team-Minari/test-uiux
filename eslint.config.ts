@@ -15,6 +15,7 @@ const compat = new FlatCompat({
 });
 
 export default defineConfig([
+	reactHooks.configs.flat.recommended,
 	// tseslint.config(...tseslint.configs.recommended), // tseslint v9+
 	pluginReact.configs.flat.recommended,
 	...compat.extends("airbnb"),
