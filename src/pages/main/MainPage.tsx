@@ -1,28 +1,29 @@
 import Header from "../../components/layout/Header";
 import Category from "../../components/layout/Category";
 import Footer from "../../components/layout/Footer";
-import MainPageCarousel from "../../components/swiper/MainPageCarousel.tsx";
+import MainPageCarousel from "../../components/swiper/MainPageCarousel"; // .tsx 확장자 제거
 import type { Product } from "../../types/ApiDataTypes";
 
 // 상품 데이터 배열
 const mockProducts: Product[] = Array.from({ length: 10 }, (_, i) => ({
 	id: `product-${i + 1}`,
 	name: "반포 자이",
-	price: "15000원",
+	price: 15000,
 	imageUrl: null,
 }));
 
 export default function MainPage() {
 	return (
-		<>
+		<div className="flex flex-col min-h-screen">
 			<Header />
 			<Category />
-			<main>
-				<div className="mx-auto px-54 py-10">
+
+			<main className="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+				<div className="py-10">
 					<MainPageCarousel />
 				</div>
 
-				<section className="max-w-7xl mx-auto pb-12 px-4 sm:px-6 lg:px-30">
+				<section className="pb-12">
 					<h2 className="text-2xl font-bold text-gray-900 mb-6">HOT</h2>
 					<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
 						{mockProducts.map((product) => (
@@ -40,7 +41,7 @@ export default function MainPage() {
 									<h3 className="text-lg font-semibold text-gray-800 truncate">
 										{product.name}
 									</h3>
-									<p className="mt-1 text-gray-600">{product.price}</p>
+									<p className="mt-1 text-gray-600">{product.price}원</p>
 								</div>
 							</div>
 						))}
@@ -49,6 +50,6 @@ export default function MainPage() {
 			</main>
 
 			<Footer />
-		</>
+		</div>
 	);
 }
