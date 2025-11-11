@@ -1,7 +1,7 @@
-import MainPage from "./pages/main/MainPage.tsx";
+import AppRouter from "./router/AppRouter.tsx";
 
 function App() {
-	return <MainPage />;
+	return <AppRouter />;
 }
 
 export default App;
