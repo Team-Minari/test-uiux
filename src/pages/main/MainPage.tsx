@@ -41,7 +41,9 @@ export default function MainPage() {
 									<h3 className="text-lg font-semibold text-gray-800 truncate">
 										{product.name}
 									</h3>
-									<p className="mt-1 text-gray-600">{product.price}원</p>
+									<p className="mt-1 text-lg font-bold text-gray-900">
+										{product.price.toLocaleString()}원
+									</p>
 								</div>
 							</div>
 						))}

@@ -41,18 +41,37 @@ export default function ProductFilter() {
 	const handleCategoryChange = (index: number) => {
 		setSelectedCategories((prev) => {
 			const newSet = new Set(prev);
-			if (newSet.has(index)) {
-				newSet.delete(index); // 이미 선택되어 있으면 제거
-			} else {
-				newSet.add(index); // 선택되어 있지 않으면 추가
+
+			// 전체를 선택한 경우
+			if (index === 0) {
+				// 다른 모든 선택을 해제하고 전체만 선택
+				return new Set([0]);
 			}
+
+			// 다른 카테고리를 선택한 경우
+			if (newSet.has(index)) {
+				newSet.delete(index); // 이미 선택된 항목이면 해제
+			} else {
+				newSet.add(index); // 선택되지 않은 항목이면 추가
+			}
+
+			// 전체가 선택되어 있었다면 해제
+			if (newSet.has(0)) {
+				newSet.delete(0);
+			}
+
+			// 모든 선택이 해제된 경우 자동으로 전체 선택
+			if (newSet.size === 0) {
+				return new Set([0]);
+			}
+
 			return newSet;
 		});
 	};
 
 	// 초기화 버튼 핸들러
 	const handleReset = () => {
-		setSelectedCategories(new Set()); // 모든 선택 해제
+		setSelectedCategories(new Set([0])); // 초기화 시 '전체'만 선택
 	};
 
 	return (
@@ -86,7 +105,7 @@ export default function ProductFilter() {
 				{isCategoryOpen && (
 					<div className="mt-4 space-y-3">
 						{categories.map((category, index) => (
-							<div key={index} className="flex items-center">
+							<div key={category} className="flex items-center">
 								<input
 									id={`category-${index}`}
 									type="checkbox"
