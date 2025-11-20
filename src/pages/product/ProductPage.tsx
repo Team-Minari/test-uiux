@@ -1,7 +1,4 @@
-import {
-	AdjustmentsHorizontalIcon,
-	ChevronDownIcon,
-} from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Header from "../../components/layout/Header";
 import Category from "../../components/layout/Category";
 import Footer from "../../components/layout/Footer";
@@ -12,7 +9,7 @@ import Pagination from "../../components/pagination/Pagination.tsx";
 // 상품 데이터 배열
 const mockProducts: Product[] = Array.from({ length: 8 }, (_, i) => ({
 	id: `product-${i + 1}`,
-	name: "반포 자이 아파트",
+	name: "반포 자이",
 	price: 15000,
 	imageUrl: null,
 }));
@@ -28,15 +25,9 @@ export default function ProductPage() {
 				<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between pb-6 border-gray-200 mb-8">
 					<h2 className="text-2xl font-bold text-gray-900">상품 목록</h2>
 					<div className="flex items-center mt-4 sm:mt-0 space-x-4">
-						{/* 모바일용 필터 버튼 */}
-						<button
-							type="button"
-							className="lg:hidden flex items-center text-gray-700 hover:text-gray-900">
-							<AdjustmentsHorizontalIcon className="w-5 h-5 mr-2" />
-							필터
-						</button>
-
-						<span className="text-sm text-gray-500">총 124개의 상품</span>
+						<span className="text-sm text-gray-500">
+							총 {mockProducts.length}개의 상품
+						</span>
 
 						{/* 정렬 드롭다운 */}
 						<div className="relative">
@@ -92,7 +83,7 @@ export default function ProductPage() {
 											{product.name}
 										</h3>
 										<p className="mt-1 text-lg font-bold text-gray-900">
-											{product.price}
+											{product.price.toLocaleString()}원
 										</p>
 									</div>
 								</div>
