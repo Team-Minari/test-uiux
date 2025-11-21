@@ -1,6 +1,5 @@
 import { useState } from "react";
 import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer";
 import type { CartItem } from "../../types/ApiDataTypes";
 
 const cartItems: CartItem[] = [
@@ -215,8 +214,6 @@ export default function PaymentPage() {
 					</button>
 				</div>
 			</main>
-
-			<Footer />
 		</div>
 	);
 }
