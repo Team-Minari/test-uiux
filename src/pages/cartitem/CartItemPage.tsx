@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
 	MinusIcon,
 	PlusIcon,
@@ -49,6 +49,13 @@ const initialSharedItems: CartItem[] = [
 ];
 
 export default function CartItemPage() {
+	const navigate = useNavigate();
+
+	// 페이지 이동 핸들러 함수
+	const handleNavigate = (path: string) => {
+		navigate(path);
+	};
+
 	// 현재 탭 상태 ( 공유 장바구니 & 개인 장바구니 )
 	const [activeTab, setActiveTab] = useState<"personal" | "shared">("personal");
 
@@ -284,9 +291,7 @@ export default function CartItemPage() {
 										? "bg-green-500 hover:bg-green-600 hover:shadow-lg"
 										: "bg-gray-300 cursor-not-allowed"
 								}`}
-								onClick={(e) => {
-									if (selectedItems.size === 0) e.preventDefault();
-								}}>
+								onClick={() => handleNavigate("/payment")}>
 								구매하기 ({selectedItems.size})
 							</Link>
 						</div>

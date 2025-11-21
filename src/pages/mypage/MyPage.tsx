@@ -5,12 +5,20 @@ import {
 } from "@heroicons/react/24/outline";
 import Header from "../../components/layout/Header";
 import Footer from "../../components/layout/Footer";
+import { useNavigate } from "react-router-dom";
 
 // 프로필 이미지 (임시 URL)
 const PROFILE_IMAGE_URL =
 	"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80";
 
 export default function MyPage() {
+	const navigate = useNavigate();
+
+	// 페이지 이동 핸들러 함수
+	const handleNavigate = (path: string) => {
+		navigate(path);
+	};
+
 	return (
 		<div className="flex flex-col min-h-screen">
 			<Header />
@@ -43,14 +51,18 @@ export default function MyPage() {
 							<h4 className="text-sm font-bold text-gray-900">Account</h4>
 						</div>
 						<div className="divide-y divide-gray-100">
-							<button className="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors text-left">
+							<button
+								className="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors text-left"
+								onClick={() => handleNavigate("/introduce")}>
 								<span className="text-sm font-medium text-gray-700">
 									회사 소개
 								</span>
 								<ChevronRightIcon className="h-4 w-4 text-gray-400" />
 							</button>
 							<button className="w-full flex items-center justify-between px-6 py-4 hover:bg-gray-50 transition-colors text-left">
-								<span className="text-sm font-medium text-gray-700">
+								<span
+									className="text-sm font-medium text-gray-700"
+									onClick={() => handleNavigate("/cart")}>
 									공유 장바구니 관리
 								</span>
 								<ChevronRightIcon className="h-4 w-4 text-gray-400" />
