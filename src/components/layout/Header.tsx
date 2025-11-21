@@ -16,7 +16,7 @@ export default function Header() {
 					<button
 						type="button"
 						className="text-sm text-gray-600 hover:text-gray-800">
-						회원가입
+						상품목록
 					</button>
 
 					<button
