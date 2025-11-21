@@ -5,3 +5,8 @@ export interface Product {
 	price: number;
 	imageUrl: string | null;
 }
+
+// 장바구니에 담긴 아이템 정보를 나타내는 인터페이스
+export interface CartItem extends Product {
+	quantity: number;
+}
