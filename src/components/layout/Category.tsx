@@ -4,8 +4,15 @@ import {
 	ShoppingCartIcon,
 	ChevronDownIcon,
 } from "@heroicons/react/24/outline";
+import { useNavigate } from "react-router-dom";
 
 export default function CategoryNav() {
+	const navigate = useNavigate();
+
+	// 페이지 이동 핸들러 함수
+	const handleNavigate = (path: string) => {
+		navigate(path);
+	};
 	return (
 		<div className="bg-white py-4 border-b border-gray-300">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-16">
@@ -46,7 +53,8 @@ export default function CategoryNav() {
 				<button
 					type="button"
 					aria-label="장바구니 보기"
-					className="p-2 text-gray-600 hover:text-green-600 transition-colors">
+					className="p-2 text-gray-600 hover:text-green-600 transition-colors"
+					onClick={() => handleNavigate("/cart")}>
 					<ShoppingCartIcon className="w-8 h-8" />
 				</button>
 			</div>
