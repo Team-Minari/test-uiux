@@ -8,12 +8,14 @@ import MainPage from "../pages/main/MainPage.tsx";
 import ProductPage from "../pages/product/ProductPage.tsx";
 import LoginPage from "../pages/login/LoginPage.tsx";
 import MyPage from "../pages/mypage/MyPage.tsx";
+import IntroducePage from "../pages/introduce/IntroducePage.tsx";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
 		<Route>
 			<Route index element={<MainPage />} />
 			<Route path="login" element={<LoginPage />} />
+			<Route path="introduce" element={<IntroducePage />} />
 			<Route path="mypage" element={<MyPage />} />
 			<Route path="products" element={<ProductPage />} />
 		</Route>
